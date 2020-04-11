@@ -1,5 +1,7 @@
 FROM python:3.7-alpine
-COPY . /
-RUN pip install requirements.txt
+COPY requirements.txt /
+RUN pip install -r /requirements.txt
+COPY app /app
+WORKDIR /app
 ENTRYPOINT ["python"]
 CMD ["app.py"]
